@@ -2,7 +2,7 @@
  
 #**Ejercicio Histograma**
 
-**1. Generar 10000 numeros aleatorios con una distribucion normal estandar (media 0 y varianza 1). **
+**1. Generar 10000 numeros aleatorios con una distribucion normal estandar (media 0 y varianza 1).**
 
 Genero 10000 números aleatorios y los asigno a una variable:
 
@@ -87,11 +87,6 @@ El resultado se ve muy mal, la función de la densidad no se aprecia.
 
 	help(hist)
 
-probability	
-an alias for !freq, for S compatibility.
-
-freq	
-logical; if TRUE, the histogram graphic is a representation of frequencies, the counts component of the result; if FALSE, probability densities, component density, are plotted (so that the histogram has a total area of one). Defaults to TRUE if and only if breaks are equidistant (and probability is not specified).
 
 Resulta que dependiendo del parametro probability la función hist() pinta las frecuencias o la densidad.
 Al tener muchas observaciones frecuencia (los count's de las observaciones) es mayor y la escala del histograma es muy diferente de la escala de la función de la densidad.
