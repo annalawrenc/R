@@ -76,7 +76,7 @@ Los números minimo y máximo obtengo con ayuda de la función min() y max().
 Utilizo una función de bajo nivel para sobreponer la densidad encima del histograma.
 
 
-	lines(seq(min(numeros),max(numeros),length.out=1000),dnorm(seq(min(numeros),max(numeros),length.out=1000)))
+	lines(seq(min(numeros),max(numeros),length.out=10000),dnorm(seq(min(numeros),max(numeros),length.out=10000)))
 
 
 ![](https://github.com/annalawrenc/R/blob/master/DensidadSinEscala.png)
@@ -101,7 +101,7 @@ Se ve que la escala ya es menor y la descripción del grafico dice "densidad".
 
 Ahora vuelvo a pintar la función de la densidad:
 
-	lines(seq(min(numeros),max(numeros),length.out=1000),dnorm(seq(min(numeros),max(numeros),length.out=1000)))
+	lines(seq(min(numeros),max(numeros),length.out=10000),dnorm(seq(min(numeros),max(numeros),length.out=10000)))
 
 ![](https://github.com/annalawrenc/R/blob/master/HistogramaConDensidad.png)
 
