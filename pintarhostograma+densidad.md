@@ -1,0 +1,113 @@
+
+ 
+#**Ejercicio Histograma**
+
+**1. Generar 10000 numeros aleatorios con una distribucion normal estandar (media 0 y varianza 1). **
+
+Genero 10000 números aleatorios y los asigno a una variable:
+
+	numeros<- rnorm(10000)
+	numeros
+
+
+	   [1]  0.7234503340 -0.8519360563  0.7000218538  0.3773746799  0.8110981298  0.6832967946 -1.3230745907  0.4513928485
+	   [9] -0.9404849855  1.3977738135  0.1174050759 -1.3892371879 -0.6064796924  1.1274333865  0.9616330646  0.9381985880
+	  [17]  0.0029645827  1.2054859826  1.5290927944 -0.4385496464  2.4379641187 -0.2853482594 -1.6707950983 -0.3633760244
+	  [25]  2.1091032996  1.0596712324  0.5094697072  1.0258921734  0.0940386065 -1.6180578118  0.0585704921  1.7790461912
+	  [33] -0.8863362909 -0.2585555881  1.2248544742 -0.8112659911 -0.8400945738 -1.2294793682 -1.0743798129 -0.4113870382
+	  [41]  2.0756875271  0.0993877314  1.4546346033  0.6235440154 -0.5188795556  0.1150146013 -0.0070385076  0.2911253437
+	  [49]  0.0759022970  1.1020418814  0.3355164065 -1.2042620316 -0.0912683182  0.8832863414 -1.1401044516  0.5063686837
+	  [57] -1.0721024312  0.9355294541  1.2399258360  0.6536884409  0.3590138804  0.6659712798  0.6428907245 -0.3652157170
+		...
+		...
+		...
+	 [937] -0.1439868097  0.0191038150 -0.9194946399 -1.0825438579 -0.5836672247 -1.1880747312  0.4958345991 -0.1365118959
+	 [945]  0.1310779433 -0.3298546011  0.5587270969 -0.9336635846 -1.2449526919  1.1141483041  0.4759929212  0.5407553682
+	 [953]  0.8795146440  0.5459964444  0.0210253042  1.0964550259 -0.1750813201 -0.8030606182  0.8992729779 -0.5910994829
+	 [961] -0.3688666376  1.3212169285  2.3428776813  0.5118212580  1.2451039779 -0.2880590257  0.4989750782  0.8583743136
+	 [969]  0.2789538665  0.2095069596 -0.4655050151 -0.7976947541 -0.6696544683 -0.4730747338 -0.8386515252 -0.5140913848
+	 [977] -0.4510972207 -1.5434013790  0.9326265442 -0.4951027855  0.6035682447 -0.4841840955 -2.1476177583 -0.3183263000
+	 [985]  1.5538165793 -0.9339954860  2.3143809916  0.8384388017  0.1805538081 -1.1448248324 -1.4650935784 -1.0477611025
+	 [993]  0.0297884617  1.2206143703  0.8667444480 -0.6926493423 -1.4291058029  0.6435023484  0.7590686047 -0.7017297396
+		...
+		
+**2. Realizar un histograma de los valores anteriores. ¿Cual es el menor y mayor valor generado?.**
+
+	hist(numeros)
+
+![](https://github.com/annalawrenc/R/blob/master/HistNorm.png)
+
+Los números minimo y máximo obtengo con ayuda de la función min() y max().
+
+	min(numeros)
+	[1] -3.148785
+
+	max(numeros)
+	[1] 3.325483
+
+**3. Generar los valores de la distribucion normal teoricos en el intervalo anterior utilizando la funcion dnorm().**
+
+
+	dnorm(numeros)
+
+
+	   [1] 0.307085605 0.277527277 0.312249157 0.371523055 0.287113227 0.315882242 0.166260122 0.360300712 0.256354369
+	  [10] 0.150194471 0.396202233 0.151991829 0.331924634 0.211296788 0.251249802 0.256905535 0.398940527 0.192908989
+	  [19] 0.123934644 0.362365673 0.020429547 0.383026789 0.098794172 0.373454314 0.043148963 0.227548906 0.350386578
+	  [28] 0.235706967 0.397182199 0.107744341 0.398258581 0.081966782 0.269352447 0.385827836 0.188421694 0.287074135
+	  [37] 0.280321539 0.187355332 0.224005533 0.366572786 0.046273868 0.396976778 0.138495223 0.328459380 0.348695396
+	  [46] 0.396312312 0.398932399 0.382389515 0.397794749 0.217362962 0.377107811 0.193193683 0.397284160 0.270080312
+	  [55] 0.208282986 0.350938896 0.224553713 0.257548761 0.184954289 0.322196774 0.374043186 0.319596056 0.324460079
+	  [64] 0.373204112 0.371490594 0.393968124 0.345700813 0.312235865 0.154532323 0.183323952 0.360426552 0.355276111
+	  [73] 0.224536992 0.396881964 0.382044737 0.354983818 0.346227842 0.006494453 0.339626120 0.391817758 0.393672991
+		...
+		...
+		...
+	 [955] 0.398854111 0.218701970 0.392874417 0.288981759 0.266259341 0.334995616 0.372704339 0.166668975 0.025643210
+	 [964] 0.349966084 0.183768128 0.382729221 0.352245608 0.276003491 0.383718464 0.390282237 0.357977196 0.290225523
+	 [973] 0.318810918 0.356707777 0.280661286 0.349558794 0.360348780 0.121240095 0.258248064 0.352924221 0.332509833
+	 [982] 0.354816100 0.039753017 0.379233052 0.119300291 0.257918324 0.027402577 0.280711355 0.392492295 0.207162767
+	 [991] 0.136396645 0.230422616 0.398765318 0.189401107 0.274017994 0.313856285 0.143688110 0.324332463 0.299083911
+		...
+
+**4. Al histograma anterior, superponer una curva con la funcion de densidad te´orica calculada. ¿Se aproxima el histograma al valor teorico?**
+
+
+Utilizo una función de bajo nivel para sobreponer la densidad encima del histograma.
+
+
+	lines(seq(min(numeros),max(numeros),length.out=1000),dnorm(seq(min(numeros),max(numeros),length.out=1000)))
+
+
+![](https://github.com/annalawrenc/R/blob/master/DensidadSinEscala.png)
+
+El resultado se ve muy mal, la función de la densidad no se aprecia.
+
+**5. Ver el parametro probability de la funcion hist y volver a generar el histograma cambiando su valor. ¿Se aproxima ahora a la funcion de densidad teorica?.**
+
+	help(hist)
+
+probability	
+an alias for !freq, for S compatibility.
+
+freq	
+logical; if TRUE, the histogram graphic is a representation of frequencies, the counts component of the result; if FALSE, probability densities, component density, are plotted (so that the histogram has a total area of one). Defaults to TRUE if and only if breaks are equidistant (and probability is not specified).
+
+Resulta que dependiendo del parametro probability la función hist() pinta las frecuencias o la densidad.
+Al tener muchas observaciones frecuencia (los count's de las observaciones) es mayor y la escala del histograma es muy diferente de la escala de la función de la densidad.
+ 
+Pinto el histograma con probability = T para que refleje probabilidades en lugar de las frecuencias.
+
+	hist(numeros, probability = T)
+
+![](https://github.com/annalawrenc/R/blob/master/HistogramaConEscala.png)
+
+Se ve que la escala ya es menor y la descripción del grafico dice "densidad".
+
+Ahora vuelvo a pintar la función de la densidad:
+
+	lines(seq(min(numeros),max(numeros),length.out=1000),dnorm(seq(min(numeros),max(numeros),length.out=1000)))
+
+![](https://github.com/annalawrenc/R/blob/master/HistogramaConDensidad.png)
+
+Ahora la forma del histograma se aproxima a la densidad teorica.
