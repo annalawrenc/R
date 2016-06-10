@@ -1,14 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
 #**Ejercicios mtcars**
 
 #**1. Previsualizar el contenido con la funcion head().**
