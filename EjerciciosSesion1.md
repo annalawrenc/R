@@ -103,12 +103,12 @@ Número de columnas:
 
 	mtcars15
 
-                     mpg cyl disp  hp drat    wt  qsec vs am gear carb
-Duster 360          14.3   8  360 245 3.21 3.570 15.84  0  0    3    4
-Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
-Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
-Chrysler Imperial   14.7   8  440 230 3.23 5.345 17.42  0  0    3    4
-Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
+	                     mpg cyl disp  hp drat    wt  qsec vs am gear carb
+	Duster 360          14.3   8  360 245 3.21 3.570 15.84  0  0    3    4
+	Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
+	Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
+	Chrysler Imperial   14.7   8  440 230 3.23 5.345 17.42  0  0    3    4
+	Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
 
 
 
@@ -116,12 +116,12 @@ Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
 
 	mtcars15[order(mtcars15[,"disp"]),]
 
-                     mpg cyl disp  hp drat    wt  qsec vs am gear carb
-Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
-Duster 360          14.3   8  360 245 3.21 3.570 15.84  0  0    3    4
-Chrysler Imperial   14.7   8  440 230 3.23 5.345 17.42  0  0    3    4
-Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
-Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
+	                     mpg cyl disp  hp drat    wt  qsec vs am gear carb
+	Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
+	Duster 360          14.3   8  360 245 3.21 3.570 15.84  0  0    3    4
+	Chrysler Imperial   14.7   8  440 230 3.23 5.345 17.42  0  0    3    4
+	Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
+	Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
 
 
 **5. Calcular la media de las marchas (gear) de los modelos del data frame anterior.**
@@ -199,7 +199,7 @@ El data frame tiene 150 elementos (observaciones) y 5 variables. Los datos de la
 **2. ¿De que tipo es cada una de las variables del data frame?.** 
 
 El tipo de cada una de las variables se ve en el resultato de str(iris). 
-También lo puedo ver ejecutanto 
+También lo puedo ver ejecutando: 
 
 	sapply(iris,class)
 
