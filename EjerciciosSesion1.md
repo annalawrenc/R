@@ -332,7 +332,7 @@ La función summary() no tiene ese problema. Calcula los resultados y lista el nú
 	?mean
 	?range
 
-Para exluir NA's hay que añadir rm.na=T
+Para excluir NA's hay que añadir rm.na=T
 
 
 	lapply(iris_mod[,1:4], mean, na.rm =T)
