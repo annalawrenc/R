@@ -327,7 +327,7 @@ Lo mismo pasa con la función range().
 La función summary() no tiene ese problema. Calcula los resultados y lista el número de NA's.
 
 
-**7. Ver la documentacion de mean(), range(), etc. ¿Que parametro habria que cambiar para arreglar el problema anterior?.
+**7. Ver la documentacion de mean(), range(), etc. ¿Que parametro habria que cambiar para arreglar el problema anterior?.**
 
 	?mean
 	?range
