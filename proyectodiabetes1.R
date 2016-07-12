@@ -94,9 +94,11 @@ boxplot(diabetes_sin_na[-2]) #excluyendo variable SEX que son factores
 
 
 #-------------------------------------------------------------------------------------------------------------------------
-#Calcular la media para las ???las que tienen SEX=M y la media para las ???las que tienen SEX=F, utilizando la funcion tapply.
+# Calcular la media para las ???las que tienen SEX=M y la media para las ???las que tienen SEX=F, utilizando la funcion tapply.
 
+sapply(diabetes_sin_na[ , -2], tapply, diabetes_sin_na$SEX,mean)
 
+# Tambien podemos obtener las medias para cada variable por separado
 
 tapply(diabetes_sin_na$AGE,diabetes_sin_na$SEX,mean)
 tapply(diabetes_sin_na$BMI,diabetes_sin_na$SEX,mean)
@@ -109,7 +111,7 @@ tapply(diabetes_sin_na$S5,diabetes_sin_na$SEX,mean)
 tapply(diabetes_sin_na$S6,diabetes_sin_na$SEX,mean)
 tapply(diabetes_sin_na$Y,diabetes_sin_na$SEX,mean)
 
-tapply(diabetes_sin_na[ , 1],diabetes_sin_na$SEX,mean)
+
 
 
 #Calcular la correlacion de todas las variables num´ericas con la variable Y. 
@@ -119,6 +121,7 @@ cor(diabetes_sin_na[,-2],diabetes_sin_na$Y) # excluyo la segunda columna que no 
 
 
 # también puedo calcular cada correlacion por separado 
+
 cor(diabetes_sin_na$AGE,diabetes_sin_na$Y)
 cor(diabetes_sin_na$BMI,diabetes_sin_na$Y)
 cor(diabetes_sin_na$BP,diabetes_sin_na$Y)
@@ -138,8 +141,14 @@ cor(diabetes_sin_na$S6,diabetes_sin_na$Y)
 #¿Como ser´ia el gra???co de dispersion entre dos cosas con correlacion 1?
 
 
-plot(diabetes_sin_na$S2,diabetes_sin_na$Y)  # la variable con menos correlación con Y - puntos mas dispersos
-plot(diabetes_sin_na$BMI,diabetes_sin_na$Y) # la variable con mas correlación con Y - puntos menos dispersos
+range(abs(cor(diabetes_sin_na[,-11],diabetes_sin_na$Y))) # obtenemos la correlación mínima y máxima de todas las correlaciones con y
+minmax <- match(range(abs(cor(diabetes_sin_na[,-11],diabetes_sin_na$Y))),abs(cor(diabetes_sin_na[,-11],diabetes_sin_na$Y)))  # obtenemos el índice de las columnas que tienen correlación minima y maxima
+minmax # vemos los ínsices que tienen las columnas con correlación minima y maxima con y: son las variables s4 (max) y s5 (min) con posición 8 y 9
+min <- minmax[1]                                # indice de la variable con menos correlación con Y
+max <- minmax [2]                               # indice de la variable con mas correlación con Y
+plot(diabetes_sin_na[ ,min],diabetes_sin_na$Y)  # grafico de la dispersion de la variable con la correlacon minima con y
+plot(diabetes_sin_na[ ,max],diabetes_sin_na$Y)  # grafico de la dispersion de la variable con la correlacon maxima con y
+
 plot(diabetes_sin_na$Y,diabetes_sin_na$Y)   # corelación 1 tiene y consigo mismo, el gráfio es una recta
 
 
@@ -167,19 +176,19 @@ no_outliers <- diabetes_sin_na[!apply(buscar_outlier, 1, any),]  # seleccionamos
 
 
 #--------------------------------------------------------------------------------------------
-#separar los datos en dos conjuntos: entrenamiento . 70% de los datos y test 30% de los datos
+# Separar los datos en dos conjuntos: entrenamiento . 70% de los datos y test 30% de los datos
 
 test<-diabetes[sample(nrow(diabetes),nrow(diabetes)*0.3, replace=FALSE), ]
 entrenamiento<-diabetes[sample(nrow(diabetes),nrow(diabetes)*0.7, replace=FALSE), ]
 
 
 #--------------------------------------------------------------------------------------------
-#Escalar los datos para que tengan media 0 y varianza 1, 
-#es decir, restar a cada variable numerica su media y dividir por la desviacion tipica. 
-#Calcular la media y desviaci´on en el conjunto de train, 
-#y utilizar esa misma media y desviacion para escalar el conjunto de test.
+# Escalar los datos para que tengan media 0 y varianza 1, 
+# es decir, restar a cada variable numerica su media y dividir por la desviacion tipica. 
+# Calcular la media y desviacion en el conjunto de train, 
+# y utilizar esa misma media y desviacion para escalar el conjunto de test.
 
-#escalando el conjunto test:
+# escalando el conjunto test:
 
 media_test<-apply(test,2,mean)                 # calculo la media por variable
 sd_test<-apply(test,2,sd)                      # calculo desviación típica
@@ -188,7 +197,10 @@ test_normal<-scale(test,media_test,sd_test)    # cescalando a la distribución no
 summary(test_normal)                           # veo que las medias son 0   
 apply(test_normal,2,sd)                        # veo que las varianzas son 1
 
-#escalando el conjunto entrenamiento:
+
+
+# escalando el conjunto entrenamiento:
+
 media_entrenamiento<-apply(entrenamiento,2,mean)
 sd_entrenamiento<-apply(entrenamiento,2,sd)
 entrenamiento_normal<-scale(entrenamiento,media_entrenamiento,sd_entrenamiento)
@@ -196,8 +208,11 @@ entrenamiento_normal<-scale(entrenamiento,media_entrenamiento,sd_entrenamiento)
 summary(entrenamiento_normal)
 apply(entrenamiento_normal,2,sd)
 
+
+
+
 #--------------------------------------------------------------------------
-#regresion lineal ajustada por mínimos cuadrados del conjunto entrenamiento
+# regresion lineal ajustada por mínimos cuadrados del conjunto entrenamiento
 
 regresion <- lm(Y ~ BMI, data=entrenamiento)
 plot(regresion)
